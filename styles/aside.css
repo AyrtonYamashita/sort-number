@@ -1,0 +1,41 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  gap: 2.375rem;
+  
+  & .ontop {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    & p {
+      font: var(--overline);
+      background: var(--gradient-content);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: black;
+    }
+
+    & h1 {
+      font: var(--display-lg);
+      color: var(--content-primary);
+    }
+  }
+
+  & .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    width: 80%;
+    & h3 {
+      font: var(--p-md);
+      font-weight: 600;
+      color: var(--brand-color);
+    }
+    & p{
+      font: var(--p-sm);
+      color: var(--content-secondary);
+    }
+  }
+}

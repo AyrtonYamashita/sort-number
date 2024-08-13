@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /*COLOR BRAND*/
+  --brand-color: #c58de7;
+
+  /*CONTENT COLORS*/
+  --content-primary: #ffffff;
+  --content-secondary: #c7c9cc;
+  --content-tertiary: #d9d9d9;
+  --color-inverse: #030203;
+
+  /*BACKGROUND COLORS*/
+  --background-primary: #020202;
+  --background-secondary: #111012;
+  --background-tertiary: #24222e;
+  --background-gray: #3d3d3d;
+
+  /*ACCENT COLORS*/
+  --accent-pink: #d586e0;
+  --accent-blue: #91a1fa;
+  --accent-green: #77c0af;
+  --accent-lime: #d1dc97;
+  --accent-red: #e9a9b3;
+
+  /*GRADIENTS*/
+  --gradient-border: linear-gradient(
+    90deg,
+    #77c0af 0%,
+    #d1dc97 14.84%,
+    #e9a9b3 32.15%,
+    #d586e0 65.79%,
+    #91a1fa 84.58%
+  );
+  --gradient-background: linear-gradient(90deg, #d586e0 0%, #94a1fa 98.93%);
+  --gradient-content: linear-gradient(90deg, #c7c9cc 0%, #3d3d3d 40%);
+
+  /*FONTS*/
+
+  --display-lg: 900 4.5rem/130% "Sora", sans-serif;
+  --display-md: 900 2.5rem/130% "Sora", sans-serif;
+  --display-sm: 700 2rem/130% "Sora", sans-serif;
+
+  --overline: 700 1rem/150% "Roboto Mono", monospace;
+
+  --p-lg: 500 1rem/150% "Roboto Flex", sans-serif;
+  --p-md: 500 0.875rem/150% "Roboto Flex", sans-serif;
+  --p-sm: 500 0.75rem/150% "Roboto Flex", sans-serif;
+  --label-md: 700 1.25rem/150% "Roboto Flex", sans-serif;
+  --label-sm: 700 1rem/150% "Roboto Flex", sans-serif;
+}
+
+body {
+  background-color: black;
+  background-image: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.6) 100%),
+    url(../assets/images/background.png);
+  width: 80rem;
+  height: 100vh;
+  font: var(--p-md);
+  color: var(--content-primary);
+}
+
+header {
+  padding: 4.75rem 7.5rem;
+}
+
+.container {
+  display: flex;
+  gap: 6.75rem;
+}
