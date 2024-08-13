@@ -62,15 +62,21 @@ main {
 
       & .switch {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         width: 1.875rem;
         height: 1.25rem;
+        gap: 2.5rem;
+
+        & label {
+          white-space: nowrap;
+        }
 
         & input {
           appearance: none;
 
           &:checked + .slider {
-            background: var(--gradient-background);
+            background: linear-gradient(90deg, #d586e0 0%, #94a1fa 98.93%);
           }
 
           &:checked + .slider:before {
@@ -85,9 +91,9 @@ main {
           left: 0;
           right: 0;
           bottom: 0;
-          background: #c0c0c0;
+          background: linear-gradient(90deg, #ccc 0%, #ccc 100%);
           border-radius: 1rem;
-          transition: 0.4s;
+          transition: background .4s ease;
 
           &::before {
             position: absolute;
