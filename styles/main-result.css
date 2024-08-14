@@ -1,0 +1,158 @@
+.main-result {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  transform: translateY(40px);
+  animation: upInner 1s 4.6s ease forwards;
+
+  & .ontop-result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+
+    h2 {
+      font: var(--label-md);
+    }
+
+    p {
+      color: var(--content-secondary);
+    }
+  }
+
+  & .wrapper-number {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    & .inner-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: showInner 1s 4s ease forwards;
+
+      h1 {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 700 3rem/150% "Roboto Mono", sans-serif;
+        opacity: 0;
+        color: var(--color-inverse);
+        animation: showNumber 1s 1.2s ease forwards,
+          showNumber 1s 3s ease reverse forwards;
+      }
+      div {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6rem;
+        height: 6rem;
+        background: var(--brand-color);
+        border-radius: 1.75rem;
+        animation: showDice 1s ease forwards, rotateAgain 2s 1s ease forwards,
+          showDice 1s 3s ease reverse forwards;
+        z-index: -1;
+      }
+    }
+  }
+
+  & button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 0.5rem;
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--background-tertiary);
+    font: var(--label-sm);
+    color: var(--content-tertiary);
+    transition: 0.2s ease;
+    opacity: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: var(--gradient-border);
+      z-index: -1;
+      border-radius: 0.5rem;
+      opacity: 0;
+      transition: 0.2s ease;
+    }
+
+    &:hover {
+      background: var(--background-secondary);
+
+      &::before {
+        opacity: 1;
+        animation: hue 1s ease infinite;
+      }
+
+      & img {
+        animation: rotateAgain 2s ease-in-out infinite;
+      }
+    }
+  }
+
+  & .again{
+    opacity: 0;
+    animation: showButton 1s 4.6s ease forwards;
+  }
+}
+
+@keyframes upInner {
+  0% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes showButton {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showDice {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes showNumber {
+  from {
+    color: var(--brand-color);
+  }
+  to {
+    opacity: 1;
+    color: var(--color-inverse);
+  }
+}
+
+@keyframes rotateAgain {
+  to {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(-360deg);
+  }
+}

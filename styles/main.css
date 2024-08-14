@@ -179,6 +179,10 @@ main {
         color: white;
         transition: 0.2s ease;
 
+        & img {
+          transform: translateX(0);
+        }
+
         &::before {
           content: "";
           position: absolute;
@@ -191,11 +195,18 @@ main {
         }
 
         &:hover {
+          background: var(--background-secondary);
+
           &::before {
             opacity: 1;
             animation: hue 1s ease infinite;
           }
 
+          & img {
+            animation: arrowMove .5s ease alternate infinite;
+          }
+        }
+        &:focus {
           background: var(--background-secondary);
         }
       }
@@ -206,5 +217,14 @@ main {
 @keyframes hue {
   to {
     filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes arrowMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(5px);
   }
 }
