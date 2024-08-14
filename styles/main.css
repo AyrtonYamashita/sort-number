@@ -37,8 +37,7 @@ main {
         gap: 0.75rem;
         padding-right: 10rem;
 
-
-        & .input-inner {
+        .input-inner {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -47,17 +46,71 @@ main {
           color: var(--content-secondary);
           font: var(--label-md);
 
-          & input {
+          &:has(input:focus) {
+            .n1::before {
+              inset: -2px;
+              opacity: 1;
+            }
+
+            input {
+              background: #24222e;
+            }
+          }
+
+          &:hover {
+            label {
+              color: var(--brand-color);
+            }
+
+            & .n1::before {
+              opacity: 1;
+              animation: hue 1s ease infinite;
+            }
+          }
+
+          & label {
+            color: var(--content-primary);
+            transition: 0.2s ease;
+          }
+
+          input {
+            position: relative;
             background: var(--background-secondary);
             width: 100%;
             height: 100%;
             border-radius: 0.5rem;
-            margin-top: 0.5rem;
             outline: none;
             border: none;
             font: var(--display-sm);
             text-align: center;
             color: white;
+            transition: 0.2s ease;
+          }
+
+          .n1 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin-top: 0.5rem;
+            box-sizing: border-box;
+            transition: 0.2s ease;
+            &::before {
+              content: "";
+              position: absolute;
+              inset: -1px; /* Ajusta o inset para criar o efeito de borda ao redor */
+              border-radius: 0.5rem;
+              background: linear-gradient(
+                90deg,
+                #77c0af 0%,
+                #d1dc97 14.84%,
+                #e9a9b3 32.15%,
+                #d586e0 65.79%,
+                #91a1fa 84.58%
+              );
+              z-index: -1;
+              opacity: 0;
+              transition: opacity 0.2s ease;
+            }
           }
         }
 
@@ -115,6 +168,7 @@ main {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
         gap: 0.5rem;
         width: 100%;
         height: 3.5rem;
@@ -123,7 +177,34 @@ main {
         background-color: var(--background-tertiary);
         font: var(--label-md);
         color: white;
+        transition: 0.2s ease;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: -2px;
+          background: var(--gradient-border);
+          z-index: -1;
+          border-radius: 0.5rem;
+          opacity: 0;
+          transition: 0.2s ease;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+            animation: hue 1s ease infinite;
+          }
+
+          background: var(--background-secondary);
+        }
       }
     }
+  }
+}
+
+@keyframes hue {
+  to {
+    filter: hue-rotate(360deg);
   }
 }
