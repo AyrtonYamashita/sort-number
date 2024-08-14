@@ -36,6 +36,7 @@ aside {
     & p{
       font: var(--p-sm);
       color: var(--content-secondary);
+      margin-left: 1.5rem;
     }
   }
 }
