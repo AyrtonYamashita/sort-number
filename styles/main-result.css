@@ -1,10 +1,11 @@
 .main-result {
   width: 70%;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 2.5rem;
-  transform: translateY(40px);
-  animation: upInner 1s 4.6s ease forwards;
+  opacity: 0;
+  transform: translateY(-100px);
+  padding: 2px;
 
   & .ontop-result {
     display: flex;
@@ -26,13 +27,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
 
     & .inner-number {
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: showInner 1s 4s ease forwards;
 
       h1 {
         position: relative;
@@ -42,20 +42,19 @@
         font: 700 3rem/150% "Roboto Mono", sans-serif;
         opacity: 0;
         color: var(--color-inverse);
-        animation: showNumber 1s 1.2s ease forwards,
-          showNumber 1s 3s ease reverse forwards;
+
       }
       div {
         position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 6rem;
-        height: 6rem;
+        width: 5rem;
+        height: 5rem;
         background: var(--brand-color);
         border-radius: 1.75rem;
-        animation: showDice 1s ease forwards, rotateAgain 2s 1s ease forwards,
-          showDice 1s 3s ease reverse forwards;
+        transform: scale(0);
+
         z-index: -1;
       }
     }
@@ -97,62 +96,26 @@
       }
 
       & img {
-        animation: rotateAgain 2s ease-in-out infinite;
+        animation: rotate-items 2s ease-in-out infinite;
       }
     }
   }
 
-  & .again{
+  & .again {
     opacity: 0;
-    animation: showButton 1s 4.6s ease forwards;
-  }
-}
-
-@keyframes upInner {
-  0% {
-    transform: translateY(40px);
-  }
-  100% {
-    transform: translateY(0px);
+    transform: translateY(10px);
+    animation: showButton 1s 6s ease forwards;
   }
 }
 
 @keyframes showButton {
   from {
+    transform: translateY(10px);
     opacity: 0;
   }
   to {
+    transform: translateY(-10px);
     opacity: 1;
   }
 }
 
-@keyframes showDice {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes showNumber {
-  from {
-    color: var(--brand-color);
-  }
-  to {
-    opacity: 1;
-    color: var(--color-inverse);
-  }
-}
-
-@keyframes rotateAgain {
-  to {
-    transform: rotate(0deg);
-  }
-
-  from {
-    transform: rotate(-360deg);
-  }
-}
